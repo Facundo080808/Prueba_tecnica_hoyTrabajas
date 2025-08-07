@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import ThemeToggle from './UI/themeToggle'
+import LinkButton from './UI/buttonLink'
 
 export function Header() {
   
@@ -30,26 +30,19 @@ export function Header() {
 
       <header className="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2 text-black dark:text-white">
         <nav className="flex px-3 text-sm font-medium rounded-full justify-center items-center gap-4">
-          <Link
+          <LinkButton
             href="/"
             className="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
           >
-            Home
-          </Link>
+            Productos
+          </LinkButton>
 
-          <Link
+          <LinkButton
             href="/films"
             className="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
           >
-            Ver Películas
-          </Link>
-
-          <Link
-            href="/characters"
-            className="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
-          >
-            Ver Personajes
-          </Link>
+            Carrito
+          </LinkButton>
 
           <ThemeToggle/>
         </nav>
