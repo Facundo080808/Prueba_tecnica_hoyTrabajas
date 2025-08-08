@@ -5,6 +5,7 @@ import { postCardApi } from "@/lib/api/postCartApi";
 import clsx from "clsx";
 import { useIsInCart } from "@/hooks/useIsInCart";
 import { useState } from "react";
+import { useCart } from "@/hooks/useCart";
 
 
 
@@ -13,15 +14,17 @@ type CardProps = {
 };
 
 export default function Card( {product }: CardProps) {
+  const { fetchCart} = useCart();
   const { name, price, image } = product;
   const imageUrl = image || "/productDefault.webp";
   const existsInCart = useIsInCart(product.id);
   const [isAdding, setIsAdding] = useState<Boolean>(existsInCart);
-  
+ 
   const handleAddToCart = async () => {
   try {
     if (existsInCart) return;
     await postCardApi(product.id);
+    await fetchCart();
     setIsAdding(true);
   } catch(error) {
    console.error(error);
