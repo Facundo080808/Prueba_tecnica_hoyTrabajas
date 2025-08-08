@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { getCart, addToCart } from "@/lib/cart"
+import { getCart, addToCart } from "@/lib/utils/cart"
 
 export async function GET() {
   const currentCart = getCart()

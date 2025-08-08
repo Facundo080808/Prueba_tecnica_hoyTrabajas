@@ -1,5 +1,6 @@
 import type{ PropsWithChildren } from 'react'
 import { ThemeProvider } from '../context/themeContext'
+import { ProductsProvider } from '@/context/productContext'
 
 
 
@@ -8,9 +9,9 @@ import { ThemeProvider } from '../context/themeContext'
 export default function Providers({ children } : PropsWithChildren) {
   return (
     <ThemeProvider>
-      
+      <ProductsProvider>
           {children}
-      
+      </ProductsProvider>      
     </ThemeProvider>
   )
 }

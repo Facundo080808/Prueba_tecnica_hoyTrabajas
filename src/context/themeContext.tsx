@@ -1,17 +1,12 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState } from "react"
-
+import { createContext, PropsWithChildren, useEffect, useState } from "react"
+import { ThemeContextType } from "@/lib/types/types"
 type Theme = "light" | "dark" | "system"
 
-interface ThemeContextType {
-  theme: Theme
-  setTheme: (theme: Theme) => void
-}
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+export const ThemeProvider = ({ children }:PropsWithChildren) => {
   const [theme, setThemeState] = useState<Theme>("system")
   const [mounted, setMounted] = useState(false)
 
@@ -39,17 +34,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setMounted(true)
   }, [])
 
-  if (!mounted) return null // 👈 evita que React hidrate con clase incorrecta
+  if (!mounted) return null
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme: applyTheme }}>
       {children}
     </ThemeContext.Provider>
   )
-}
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext)
-  if (!context) throw new Error("useTheme debe usarse dentro de ThemeProvider")
-  return context
 }

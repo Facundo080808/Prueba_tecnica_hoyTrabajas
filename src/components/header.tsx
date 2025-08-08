@@ -33,13 +33,15 @@ export function Header() {
           <LinkButton
             href="/"
             className="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
+            variant='ghost'
           >
             Productos
           </LinkButton>
 
           <LinkButton
-            href="/films"
+            href="/cart"
             className="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-400"
+            variant='ghost'
           >
             Carrito
           </LinkButton>

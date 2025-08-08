@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { cn } from "@/lib/cn"
+import { cn } from "@/lib/utils/cn"
 import Button from "@/components/UI/button"
-import { ButtonProps } from "@/lib/types"
+import { ButtonProps } from "@/lib/types/types"
 
 interface LinkButtonProps extends ButtonProps {
   href: string

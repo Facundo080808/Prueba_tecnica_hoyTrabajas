@@ -1,5 +1,5 @@
 export const productsList = [
-  { "id": 1, "name": "Laptop", "price": 1200 },
+  { "id": 1, "name": "Laptop", "price": 120 },
   { "id": 2, "name": "Mouse inalámbrico", "price": 25 },
   { "id": 3, "name": "Teclado mecánico", "price": 80 },
   { "id": 4, "name": "Monitor 24\"", "price": 180 },
