@@ -8,7 +8,10 @@ export default function CartPage() {
   const { cart} = useCart();
  
   if (cart.length === 0) {
-    return <p className="p-4 text-center">El carrito está vacío.</p>;
+    return  <p className="fixed inset-0 flex items-center justify-center text-center">
+              El carrito está vacío.
+            </p>
+
   }
 
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);

@@ -18,7 +18,7 @@ export default function Card( {product }: CardProps) {
   const { name, price, image } = product;
   const imageUrl = image || "/productDefault.webp";
   const existsInCart = useIsInCart(product.id);
-  const [isAdding, setIsAdding] = useState<Boolean>(existsInCart);
+  const [isAdding, setIsAdding] = useState<boolean>(existsInCart);
  
   const handleAddToCart = async () => {
   try {

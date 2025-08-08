@@ -2,7 +2,7 @@ import { productsList } from "./productsList"
 import { IProduct } from "@/lib/types/types"
 
 
-let cart: IProduct[] = []
+const cart: IProduct[] = []
 
 export function getCart() {
   return cart

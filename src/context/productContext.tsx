@@ -18,7 +18,7 @@ export function ProductsProvider({ children }: PropsWithChildren) {
       try {
         const data = await getProducts();
         setProducts(data);
-      } catch (err) {
+      } catch  {
         setError("Error al cargar los productos");
       } finally {
         setLoading(false);
