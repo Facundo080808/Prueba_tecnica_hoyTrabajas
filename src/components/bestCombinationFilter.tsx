@@ -23,7 +23,7 @@ export default function BestCombination() {
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
-    <section className="max-w-xl mx-auto p-6 bg-white dark:bg-neutral-900 rounded-xl shadow">
+    <section className="max-w-xl mx-auto p-6 bg-white dark:bg-neutral-900 rounded-xl shadow transition-colors duration-300">
       <h1 className="text-2xl font-bold mb-4">Mejor combinación de productos</h1>
       <article className="flex flex-row items-end gap-4 flex-wrap">
    

@@ -17,7 +17,7 @@ export default function CartPage() {
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <main className="max-w-3xl mx-auto p-6 bg-white dark:bg-neutral-900 rounded-xl shadow">
+    <main className="max-w-3xl mx-auto p-6 bg-white dark:bg-neutral-900 rounded-xl shadow transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-6 text-center dark:text-white">Tu Carrito</h1>
       <ul className="divide-y divide-gray-200 dark:divide-neutral-700">
         {cart.map(({ id, name, price, image }) => (

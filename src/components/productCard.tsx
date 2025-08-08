@@ -55,7 +55,7 @@ export default function Card( {product }: CardProps) {
       onClick={handleAddToCart}
       className={clsx(
         "mt-auto transition-all duration-300",
-        (existsInCart || isAdding)  && "animate-shake bg-red-500 text-white hover:bg-red-800"
+        (existsInCart || isAdding)  && "animate-shake bg-red-500 text-white hover:bg-red-800  dark:bg-red-500 dark:text-white dark:hover:bg-red-800"
       )}
     >
       {existsInCart || isAdding  ? (
