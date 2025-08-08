@@ -2,11 +2,14 @@
 import Image from "next/image";
 import Button from "@/components/UI/button";
 import { useCart } from "@/hooks/useCart";
+import { useEffect } from "react";
 
 
 export default function CartPage() {
-  const { cart} = useCart();
- 
+  const { cart , fetchCart} = useCart();
+  useEffect(() => {
+    fetchCart();
+  }, []);
   if (cart.length === 0) {
     return  <p className="fixed inset-0 flex items-center justify-center text-center">
               El carrito está vacío.
