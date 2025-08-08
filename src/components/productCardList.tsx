@@ -1,11 +1,12 @@
 "use client";
 import Card from "@/components/productCard";
 import { useProducts } from "@/hooks/useProducts";
+import Loading from "./UI/loading";
 
 export default function ProductList() {
   const { products, filteredProducts, loading, error } = useProducts();
 
-  if (loading) return <p>Cargando productos...</p>;
+  if (loading) return <Loading />;
   if (error) return <p className="text-red-500">{error}</p>;
 
   const displayProducts = filteredProducts ?? products;

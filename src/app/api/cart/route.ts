@@ -14,14 +14,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "ID inválido" }, { status: 400 })
     }
 
-    const success = addToCart(id)
+    const result = addToCart(id)
 
-    if (!success) {
-      return NextResponse.json({ error: "Producto no encontrado" }, { status: 404 })
+    switch (result) {
+      case "added":
+        return NextResponse.json({ message: "Producto agregado" })
+      case "already_in_cart":
+        return NextResponse.json({ message: "El producto ya está en el carrito" }, { status: 409 }) 
+      case "not_found":
+        return NextResponse.json({ error: "Producto no encontrado" }, { status: 404 })
     }
-
-    return NextResponse.json({ message: "Producto agregado" })
   } catch {
     return NextResponse.json({ error: "JSON inválido" }, { status: 400 })
   }
 }
+

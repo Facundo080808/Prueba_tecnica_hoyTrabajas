@@ -1,5 +1,12 @@
 import { ButtonHTMLAttributes,ElementType } from "react"
 
+export interface ThemeContextType {
+  theme: "light" | "dark" | "system"
+  setTheme: (theme: "light" | "dark" | "system") => void
+}
+
+export type Theme = "light" | "dark" | "system"
+
 export interface IProduct {
   id: number;
   name: string;
@@ -21,7 +28,9 @@ export type ProductsContextType = {
   error: string | null;
 };
 
-export interface ThemeContextType {
-  theme: "light" | "dark" | "system"
-  setTheme: (theme: "light" | "dark" | "system") => void
-}
+
+export type CartContextType = {
+  cart: IProduct[];
+  setCart: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  fetchCart: () => Promise<void>;
+};

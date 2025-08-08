@@ -1,8 +1,8 @@
 "use client"
 
 import { createContext, PropsWithChildren, useEffect, useState } from "react"
-import { ThemeContextType } from "@/lib/types/types"
-type Theme = "light" | "dark" | "system"
+import { ThemeContextType, Theme } from "@/lib/types/types"
+
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 

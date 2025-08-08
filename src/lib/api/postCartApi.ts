@@ -9,7 +9,7 @@ export async function postCardApi(id : number) {
   });
 
   if (!res.ok) {
-    throw new Error("No se pudieron obtener los productos");
+    throw new Error("Erro al añadir al carrito");
   }
 
   return res.json();

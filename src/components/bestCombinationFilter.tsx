@@ -2,51 +2,17 @@
 import { useEffect, useState } from "react";
 import { useProducts } from "@/hooks/useProducts"; // Usa tu custom hook que accede al contexto
 import Button from "./UI/button";
+import { findBestCombination } from "@/lib/utils/findBestCombination";
+import { IProduct } from "@/lib/types/types";
 
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-};
 
-// 🧠 Algoritmo para encontrar mejor combinación
-function findBestCombination(products: Product[], budget: number): Product[] {
-  let bestCombo: Product[] = [];
-  let maxTotal = 0;
-
-  const totalCombinations = 1 << products.length;
-
-  for (let i = 0; i < totalCombinations; i++) {
-    const combo: Product[] = [];
-    let total = 0;
-
-    for (let j = 0; j < products.length; j++) {
-      if (i & (1 << j)) {
-        const product = products[j];
-        total += product.price;
-        combo.push(product);
-      }
-    }
-
-    if (total <= budget && total > maxTotal) {
-      maxTotal = total;
-      bestCombo = combo;
-    }
-  }
-
-  return bestCombo;
-}
-
-// 🧩 Componente principal
 export default function BestCombination() {
-  const { products, loading, error ,setFilteredProducts } = useProducts(); 
+  const { products, error ,setFilteredProducts } = useProducts(); 
   const [budget, setBudget] = useState(0);
-  const [result, setResult] = useState<Product[]>([]);
+  const [result, setResult] = useState<IProduct[]>([]);
   
   useEffect(() => {
     if (budget <= 0) return setFilteredProducts(products)
-
-  
     const best = findBestCombination(products, budget);
     setResult(best);
     setFilteredProducts(best);
@@ -54,7 +20,6 @@ export default function BestCombination() {
 
   const total = result.reduce((sum, p) => sum + p.price, 0);
 
-  if (loading) return <p className="text-center">Cargando productos...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
@@ -77,7 +42,12 @@ export default function BestCombination() {
 
    
         <Button
-          onClick={() => setFilteredProducts(products)}
+          onClick={() => {
+            setBudget(0);
+            setFilteredProducts(products)
+            setResult([]);
+          }
+          }
           className="text-white px-4 py-2 rounded"
           variant="default"
         >
@@ -90,7 +60,7 @@ export default function BestCombination() {
             Total: ${total}
           </p>
         ) : (
-          <p className="text-gray-500 ml-auto">Sin productos válidos</p>
+           budget != 0 && <p className="text-gray-500 ml-auto">Sin productos válidos</p>
         )}
       </article>
 

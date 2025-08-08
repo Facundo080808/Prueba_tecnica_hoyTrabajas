@@ -4,7 +4,7 @@ export async function getCartApi() {
   });
 
   if (!res.ok) {
-    throw new Error("No se pudieron obtener los productos");
+    throw new Error("No se pudieron obtener los productos del carrito");
   }
 
   return res.json();
