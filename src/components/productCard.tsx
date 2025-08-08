@@ -22,7 +22,7 @@ export default function Card( {product }: CardProps) {
  
   const handleAddToCart = async () => {
   try {
-    if (existsInCart) return;
+    if (existsInCart || isAdding) return;
     await postCardApi(product.id);
     await fetchCart();
     setIsAdding(true);
