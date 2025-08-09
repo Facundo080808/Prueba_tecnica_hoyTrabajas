@@ -2,6 +2,8 @@
 
 Este es un proyecto desarrollado como parte de una prueba técnica. Se trata de una pequeña aplicación de productos y carrito de compras utilizando tecnologías modernas del ecosistema React y Next.js.
 
+
+
 ---
 
 ## 🚀 Tecnologías utilizadas
@@ -37,3 +39,9 @@ cd TU_REPO
 bun install
 
 bun run dev
+
+
+💡 Notas adicionales
+Para mejorar la experiencia visual, añadí un modo oscuro utilizando next-themes, aunque no estaba especificado en los requerimientos de la prueba.
+
+mi intencion fui limitarme a cumplir los requerimentos de la prueba,por mi también habría implementado funcionalidades adicionales y persistencia de datos (por ejemplo, con localStorage o integración con una restAPI independiente) para lograr una aplicación más completa y robusta.
